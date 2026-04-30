@@ -1,25 +1,26 @@
-/*
-WEEK 1 — TASK 1 (Iteration)
+#include <stdio.h>
 
-Goal:
-Practice loops and input validation.
+int main(void)
+{
+    int n;
 
-Task:
-1. Ask the user for a positive integer n.
-2. If n < 1, ask again until valid.
-3. Print a half-pyramid using # symbols.
+    // Ask until user enters a valid positive integer
+    do
+    {
+        printf("Enter a positive integer: ");
+        scanf("%d", &n);
+    }
+    while (n < 1);
 
-Example:
-Input: 4
+    // Print half-pyramid
+    for (int i = 1; i <= n; i++)
+    {
+        for (int j = 1; j <= i; j++)
+        {
+            printf("#");
+        }
+        printf("\n");
+    }
 
-Output:
-#
-##
-###
-####
-
-Rules:
-- You must use loops (for or while).
-- No recursion allowed.
-- Output must match exactly.
-*/
+    return 0;
+}

@@ -1,20 +1,43 @@
-/*
-WEEK 1 — TASK 2 (Recursion)
+#include <stdio.h>
 
-Goal:
-Practice recursion.
+// Recursive function to print n hashes
+void print_row(int n)
+{
+    if (n <= 0)
+    {
+        return;
+    }
 
-Task:
-1. Ask the user for a positive integer n.
-2. Use a recursive function to print:
+    print_row(n - 1);
+    printf("#");
+}
 
-#
-##
-###
-####
+void print_pyramid(int n)
+{
+    if (n <= 0)
+    {
+        return;
+    }
 
-Rules:
-- You must create a recursive function.
-- You cannot use a loop to print rows.
-- Base case must be correct.
-*/
+    print_pyramid(n - 1);
+    print_row(n);
+    printf("\n");
+}
+
+int main(void)
+{
+    int n;
+
+    // Input validation
+    do
+    {
+        printf("Enter a positive integer: ");
+        scanf("%d", &n);
+    }
+    while (n < 1);
+
+    // Print pyramid using recursion
+    print_pyramid(n);
+
+    return 0;
+}
